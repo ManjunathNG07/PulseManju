@@ -1,0 +1,8 @@
+{
+    "TC_011":{
+        "url": "https://test-pulsev3-uae.tatsh.cloud/auth/login",
+        "userNameInput": "test_user3",
+        "passwordInput": "Alpha@111",
+        "search":"6F7DEC4A3BBB9B1D"
+    }
+}
