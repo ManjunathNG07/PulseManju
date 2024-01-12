@@ -29,5 +29,7 @@ test("TC_063_Eligibility Checking_Card_Verify Message For Eligible Beneficiary",
 
     await eligibilityPage.clickOnCheckEligibilityButton();
 
+    await eligibilityPage.verifyEligibility();
+
 
 })

@@ -5,6 +5,8 @@ export class EligibilityPage {
     readonly cardNumber: Locator;
     readonly typelocator: Locator;
     readonly checkEligibilitybutton: Locator;
+    readonly verifytheEligibilityLocator: Locator;
+    readonly selecttypeLocator: Locator;
 
 
 
@@ -12,8 +14,10 @@ export class EligibilityPage {
     constructor(page: Page) {
         this.page = page;
         this.cardNumber = page.locator('[title="Card Number"]').first();
-        this.typelocator = page.locator('[id="mat-select-value-27"]');
+        this.typelocator = page.locator('[data-mat-icon-name="icon-angle-down-lg"]');
+        this.selecttypeLocator = page.locator('[title="Assistance"]');
         this.checkEligibilitybutton = page.locator('[title="Check Eligibility"]').first();
+        this.verifytheEligibilityLocator = page.locator("//h3[.='Not Eligible']");
     }
 
     async enter16DigitCardNumber(cardNum: string) {
@@ -21,10 +25,16 @@ export class EligibilityPage {
     }
 
     async selectType(type: string) {
-        await this.typelocator.selectOption(type);
+        await this.typelocator.click();
+        await this.selecttypeLocator.click();
     }
 
+   
     async clickOnCheckEligibilityButton() {
         await this.checkEligibilitybutton.click();
+    }
+
+    async verifyEligibility() {
+        expect(this.verifytheEligibilityLocator).toBeTruthy();
     }
 }
